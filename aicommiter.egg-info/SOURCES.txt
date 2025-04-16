@@ -5,6 +5,7 @@ aicommiter/cli.py
 aicommiter/commit.py
 aicommiter/init_branch.py
 aicommiter/pr.py
+aicommiter/pr_preview.py
 aicommiter.egg-info/PKG-INFO
 aicommiter.egg-info/SOURCES.txt
 aicommiter.egg-info/dependency_links.txt

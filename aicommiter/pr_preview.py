@@ -10,11 +10,11 @@ def get_saved_api_key():
     else:
         return os.getenv("OPENAI_API_KEY", "")
 
-def create_pr():
+def preview_pr():
     diff = subprocess.check_output(["git", "diff", "--cached"]).decode("utf-8")
     client = OpenAI(api_key=get_saved_api_key())
 
-    print("🤖 PRテンプレートをAIで生成中...")
+    print("🤖 PRテンプレートをAIでプレビュー出力中...")
 
     response = client.chat.completions.create(
         model="gpt-4",
@@ -25,11 +25,4 @@ def create_pr():
         temperature=0.5
     )
 
-    pr_body = response.choices[0].message.content.strip()
-
-    # 保存
-    with open(".tmp_pr_template.md", "w") as f:
-        f.write(pr_body)
-
-    # PR作成
-    subprocess.run(["gh", "pr", "create", "--fill", "--body-file", ".tmp_pr_template.md"])
+    print(response.choices[0].message.content.strip())

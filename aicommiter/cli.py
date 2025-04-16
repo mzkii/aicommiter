@@ -2,6 +2,7 @@ import click
 from .init_branch import init_branch
 from .commit import commit_changes
 from .pr import create_pr
+from .pr_preview import preview_pr
 
 @click.group()
 def cli():
@@ -22,3 +23,8 @@ def commit():
 def pr():
     """Create pull request with a filled template"""
     create_pr()
+
+@cli.command()
+def preview():
+    """Preview pull request content only"""
+    preview_pr()

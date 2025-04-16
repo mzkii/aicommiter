@@ -5,7 +5,7 @@
 ## 📦 1-line Installation
 
 ```bash
-curl -sL https://your-host/aicommiter_cli_commit_fixed_final.zip -o aicommiter.zip && unzip aicommiter.zip && cd aicommiter && pip install -r requirements.txt && pip install -e .
+curl -sL https://your-host/aicommiter_cli.zip -o aicommiter.zip && unzip aicommiter.zip && cd aicommiter && pip install -r requirements.txt && pip install -e .
 ```
 
 > Replace `your-host` with your actual file hosting URL if you're distributing the zip.
@@ -14,29 +14,35 @@ curl -sL https://your-host/aicommiter_cli_commit_fixed_final.zip -o aicommiter.z
 
 ## 🛠 How to Use
 
-### 1. Initialize a new branch (with AI-suggested names)
+### 1. Initialize a new branch (AI-suggested)
 
 ```bash
 aicommiter init
 ```
 
-### 2. Commit changes (AI-suggested commit messages)
+### 2. Commit changes (AI-suggested commit messages in English)
 
 ```bash
 aicommiter commit
 ```
 
-### 3. Create a PR (using a generated template and GitHub CLI)
+### 3. Create a PR with AI-filled Japanese template (via GitHub CLI)
 
 ```bash
 aicommiter pr
+```
+
+### 4. Preview PR content only (Japanese output)
+
+```bash
+aicommiter preview
 ```
 
 ---
 
 ## 🔐 OpenAI API Key
 
-When running for the first time, you'll be asked to enter your `OPENAI_API_KEY`.  
+On first use, you'll be prompted to enter your `OPENAI_API_KEY`.  
 It will be saved securely at `~/.aicommiter/openai_api_key` and reused automatically.
 
 ---
@@ -44,10 +50,7 @@ It will be saved securely at `~/.aicommiter/openai_api_key` and reused automatic
 ## ✅ Features
 
 - [x] Compatible with OpenAI Python SDK >= 1.0.0
-- [x] Generates branch names based on git diff
-- [x] AI-generated commit message selection
-- [x] PR body templating with `gh pr create` support
-
----
-
-This CLI makes your Git workflow faster, cleaner, and powered by AI ✨
+- [x] Git diff → AI-suggested branch names
+- [x] AI-suggested commit messages (English)
+- [x] AI-filled PR templates (Japanese)
+- [x] Preview PR template before submitting
