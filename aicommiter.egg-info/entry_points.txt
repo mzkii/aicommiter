@@ -1,0 +1,2 @@
+[console_scripts]
+aicommiter = aicommiter.cli:cli
